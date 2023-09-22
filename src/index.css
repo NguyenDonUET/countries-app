@@ -1,9 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,600;0,6..12,800;1,6..12,300;1,6..12,600;1,6..12,800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html,
-body,
+body {
+    min-height: 100%;
+    font-family: "Nunito Sans", sans-serif;
+    @apply text-white dark:text-darkBlue;
+}
+
 #root {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+@layer base {
+    .container {
+        @apply max-w-5xl mx-auto md:px-11 px-4;
+    }
+}
+@layer components {
+    .country-info {
+        @apply flex flex-col gap-2;
+    }
 }

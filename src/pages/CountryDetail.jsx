@@ -44,7 +44,11 @@ export default function CountryDetail() {
                                 />
                                 <CountryInfo
                                     title={"Population"}
-                                    content={formatPopulation(population)}
+                                    content={
+                                        population === 0
+                                            ? "updating..."
+                                            : formatPopulation(population)
+                                    }
                                 />
 
                                 <CountryInfo
@@ -53,17 +57,19 @@ export default function CountryDetail() {
                                 />
                                 <CountryInfo
                                     title={"Sub Region"}
-                                    content={subregion}
+                                    content={subregion || "updating..."}
                                 />
                                 <CountryInfo
                                     title={"Capital"}
-                                    content={capital ? capital[0] : ""}
+                                    content={
+                                        capital ? capital[0] : "updating..."
+                                    }
                                 />
                             </div>
                             <div className="country-info mt-4">
                                 <CountryInfo
                                     title={"Top Level Domain"}
-                                    content={tld ? tld[0] : ""}
+                                    content={tld ? tld[0] : "updating..."}
                                 />
                                 <CountryInfo
                                     title={"Currencies"}
@@ -80,15 +86,17 @@ export default function CountryDetail() {
                                 Border countries:
                             </h2>
                             <div className="flex flex-wrap gap-2">
-                                {borders?.map((border) => {
-                                    return (
-                                        <BorderCountryButton
-                                            key={border}
-                                            text={border}
-                                            to={`/country/${border}`}
-                                        />
-                                    );
-                                })}
+                                {borders?.length > 0
+                                    ? borders.map((border) => {
+                                          return (
+                                              <BorderCountryButton
+                                                  key={border}
+                                                  text={border}
+                                                  to={`/country/${border}`}
+                                              />
+                                          );
+                                      })
+                                    : "None"}
                             </div>
                         </div>
                     </div>
@@ -99,8 +107,7 @@ export default function CountryDetail() {
 }
 
 const loader = async ({ params, request: { signal } }) => {
-    console.log("🚀 ~ param:", params);
-
+    // console.log("🚀 ~ param:", params);
     return countryApi.getCountryByCode(params.code, { signal });
 };
 

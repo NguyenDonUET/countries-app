@@ -11,13 +11,13 @@ export default function SearchInput() {
     return (
         <Form
             onSubmit={handleSubmit}
-            className="flex gap-8 py-5 pl-8 pr-4 items-center border-1 rounded-lg w-full bg-white dark:bg-darkBlue shadow-lg max-w-sm dark:border-none border"
+            className="flex gap-2 items-center py-5 pl-8 pr-4  border-1 rounded-lg w-full bg-white dark:bg-darkBlue shadow-lg max-w-sm dark:border-none border"
         >
             <svg
-                width={24}
-                height={24}
+                width="24"
+                height="24"
                 xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
+                className="ionicon w-8 w-8"
                 viewBox="0 0 512 512"
             >
                 <path
@@ -26,7 +26,7 @@ export default function SearchInput() {
                 />
             </svg>
             <input
-                className="dark:bg-darkBlue border-none outline-none dark:text-white flex-1 dark:placeholder:text-white placeholder:text-base text-xl font-semibold "
+                className="dark:bg-darkBlue border-none outline-none dark:text-white dark:placeholder:text-white placeholder:text-sm text-base font-semibold flex-1"
                 autoComplete="off"
                 type="search"
                 value={searchVal}

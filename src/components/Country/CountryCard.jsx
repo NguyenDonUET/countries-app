@@ -25,7 +25,7 @@ function CountryCard({ country }) {
                 className="max-w-full flex-1 max-h-96 rounded-tl-lg rounded-tr-lg"
             />
             <div className="mt-6 px-6">
-                <h2 className="mb-6 text-base font-semibold">{common}</h2>
+                <h2 className="mb-6 text-xl font-semibold">{common}</h2>
                 <div className="country-info">
                     <p>
                         <span className="font-semibold">Population: </span>{" "}

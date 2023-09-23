@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../context/AppContext";
+import { useThemeContext } from "../../context/ThemeContext";
 
 function BackButton() {
-    const { darkTheme } = useAppContext();
+    const { darkTheme } = useThemeContext();
 
     return (
         <Link
@@ -14,7 +14,7 @@ function BackButton() {
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="ionicon group-hover:translate-x-[-8px] transition-all"
+                className="ionicon group-hover:translate-x-[-8px] transition-all"
                 viewBox="0 0 512 512"
                 width={24}
                 height={24}
@@ -23,9 +23,9 @@ function BackButton() {
                 <path
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="48"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="48"
                     d="M244 400L100 256l144-144M120 256h292"
                 />
             </svg>

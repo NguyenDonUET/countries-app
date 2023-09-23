@@ -1,26 +1,23 @@
 import { Form } from "react-router-dom";
-import { useAppContext } from "../context/AppContext";
-import { useState } from "react";
+import { useAppContext } from "../../context/AppContext";
+import { useThemeContext } from "../../context/ThemeContext";
 
 export default function SearchInput() {
-    const [searchVal, setSearchVal] = useState("");
-    const { darkTheme } = useAppContext();
+    const { darkTheme } = useThemeContext();
+    const { searchVal, setSearchVal } = useAppContext();
 
-    const handleSearch = (e) => {
-        console.log(searchVal);
-        setSearchVal("");
-    };
+    const handleSubmit = () => {};
 
     return (
         <Form
-            onSubmit={handleSearch}
-            className="flex gap-8 py-5 pl-8 pr-4 items-center border-1 rounded-lg w-full bg-white dark:bg-darkBlue shadow-lg max-w-sm"
+            onSubmit={handleSubmit}
+            className="flex gap-8 py-5 pl-8 pr-4 items-center border-1 rounded-lg w-full bg-white dark:bg-darkBlue shadow-lg max-w-sm dark:border-none border"
         >
             <svg
                 width={24}
                 height={24}
                 xmlns="http://www.w3.org/2000/svg"
-                class="ionicon"
+                className="ionicon"
                 viewBox="0 0 512 512"
             >
                 <path
@@ -29,11 +26,12 @@ export default function SearchInput() {
                 />
             </svg>
             <input
-                className="bg-transparent border-none outline-none dark:text-white flex-1 dark:placeholder:text-white placeholder:text-base text-xl font-semibold"
+                className="dark:bg-darkBlue border-none outline-none dark:text-white flex-1 dark:placeholder:text-white placeholder:text-base text-xl font-semibold "
                 autoComplete="off"
                 type="search"
                 value={searchVal}
                 onChange={(e) => setSearchVal(e.target.value)}
+                name="name"
                 placeholder="Search for a country..."
             />
         </Form>

@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../context/AppContext";
+import { useThemeContext } from "../context/ThemeContext";
 function Header() {
-    const { darkTheme, setDarkTheme } = useAppContext();
+    const { darkTheme, setDarkTheme } = useThemeContext();
 
     useEffect(() => {
         if (darkTheme) {
@@ -19,7 +19,7 @@ function Header() {
     return (
         <header className="fixed top-0 w-full text-lightModeText bg-white dark:bg-darkBlue dark:text-white h-headerHeight flex items-center shadow-md z-50">
             <div className="container flex items-center justify-between text-sm ">
-                <h2 className="md:text-2xl font-semibold">
+                <h2 className="md:text-2xl text-base font-semibold">
                     <Link to={"/"}>Where in the world?</Link>
                 </h2>
                 <div

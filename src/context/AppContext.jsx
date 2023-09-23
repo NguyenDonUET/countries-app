@@ -3,10 +3,21 @@ import React, { useContext, useState } from "react";
 export const AppContext = React.createContext();
 
 const AppContextProvider = ({ children }) => {
-    const [darkTheme, setDarkTheme] = useState(true);
+    const [searchVal, setSearchVal] = useState("");
+    const [regionOptions, setRegionOptions] = useState([]);
+    const [region, setRegion] = useState("");
 
     return (
-        <AppContext.Provider value={{ darkTheme, setDarkTheme }}>
+        <AppContext.Provider
+            value={{
+                searchVal,
+                region,
+                setSearchVal,
+                setRegion,
+                regionOptions,
+                setRegionOptions,
+            }}
+        >
             {children}
         </AppContext.Provider>
     );

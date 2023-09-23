@@ -9,9 +9,9 @@ export const countryApi = {
         const response = await http.get("/all", options);
         return response.data;
     },
-    getCountryByName: async (name, options) => {
-        const response = await http.get(`/name/${name}`, options);
-        return response.data;
+    getCountryByCode: async (code, options) => {
+        const response = await http.get(`/alpha/${code}`, options);
+        return response.data[0];
     },
     getCountriesByRegion: async (region, options) => {
         const response = await http.get(`/region/${region}`, options);
